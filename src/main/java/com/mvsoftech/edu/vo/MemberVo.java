@@ -13,6 +13,7 @@ public class MemberVo {
 	private String address;
 	private String email;
 	private String tel;
+	
 	ArrayList<MemberVo> members = new ArrayList<>();
 	
 	public MemberVo() {

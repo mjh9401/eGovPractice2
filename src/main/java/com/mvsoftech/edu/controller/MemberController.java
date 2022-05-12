@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mvsoftech.edu.dao.MemberDAO;
 import com.mvsoftech.edu.service.MemberService;
 import com.mvsoftech.edu.vo.MemberVo;
 
@@ -22,6 +24,18 @@ public class MemberController {
 	/**MemberService*/
 	@Resource(name="memberService")
 	private MemberService memberService;
+	
+	/** 
+	 * 마이바이스 테스용 메소드
+	 */
+	@RequestMapping("test.do")
+	public void test() {
+		String time = memberService.test();
+		System.out.println("현재시간 : "+time);
+	}
+	
+	
+	
 	
 	/** 
 	 * 검색어 요청처리
@@ -43,6 +57,7 @@ public class MemberController {
 	public String actinoSerachMember(String searchKeyWord,Model model) {
 		List<MemberVo> members = memberService.searchMember(searchKeyWord);		
 		model.addAttribute("members", members);
+		
 		return "member/list";
 	}
 	
