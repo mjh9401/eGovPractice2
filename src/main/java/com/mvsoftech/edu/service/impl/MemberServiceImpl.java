@@ -50,7 +50,7 @@ public class MemberServiceImpl implements MemberService {
 	 */
 	@Override
 	public String test() {
-		return memberDao.selectTime2();
+		return memberDao.getTime();
 	}
 
 	

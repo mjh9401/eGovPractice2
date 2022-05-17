@@ -7,23 +7,39 @@
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
- 	
- 	<!-- MySql을 설치했을 경우 -->
+ 
+ 	<!-- MySql을 설치했을 경우 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/company?useUnicode=true"/>
         <property name="username" value="root"/>
         <property name="password" value="0000"/>
-    </bean>   
- 	
+    </bean>
+    -->
+     
+ 	<!-- PostgreSQL을 설치했을 경우--> 
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://192.168.10.80:5402/mvstedu"/>
+        <property name="username" value="edu"/>
+        <property name="password" value="mvstpgedu"/>
+    </bean> 
+    
+    
  	<!-- 세션 팩토리 -->
  	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
+		<!-- 마이바티스 설정 -->
+		<property name="configLocation" value="classpath:/config/mapperConfig.xml"/>
+		<!-- Mapper Locations 설정 -->
+		<property name="mapperLocations" value="classpath:/mappers/**/*DAO.xml"/>
 	</bean>
  	
  	<!--마이바이스 Mapper스캔-->
  	<mybatis-spring:scan base-package="com.mvsoftech.edu.dao"/>
-		
+	
+	
+	<!-- 컴포넌트 스캔 -->	
     <context:component-scan base-package="com">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>

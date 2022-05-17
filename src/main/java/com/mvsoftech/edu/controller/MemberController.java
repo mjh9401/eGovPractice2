@@ -31,10 +31,11 @@ public class MemberController {
 	@RequestMapping("test.do")
 	public void test() {
 		String time = memberService.test();
-		System.out.println("현재시간 : "+time);
+		//MemberVo member = memberService.test();
+		
+		System.out.println("시간 : "+time);
+		//System.out.println("이름 : "+member.getName());
 	}
-	
-	
 	
 	
 	/** 

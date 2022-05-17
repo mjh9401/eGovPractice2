@@ -2,6 +2,8 @@ package com.mvsoftech.edu.dao;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.mvsoftech.edu.vo.MemberVo;
+
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 /** 
@@ -19,8 +21,9 @@ public interface MemberDAO {
 	public String selectTime();
 	
 	/** 
-	 * DB에서 SQL로 현재시간을 찾는 메소드 xml버전
-	 * @return 현재시간
+	 * DB에 있는 직원들 명단 찾는 메소드
+	 * @return 직원명단
 	 */
-	public String selectTime2();
+	public String getTime();
+	
 }
