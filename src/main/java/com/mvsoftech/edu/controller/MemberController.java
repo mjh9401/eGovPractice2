@@ -1,7 +1,5 @@
 package com.mvsoftech.edu.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mvsoftech.edu.dao.MemberDAO;
 import com.mvsoftech.edu.service.MemberService;
 import com.mvsoftech.edu.vo.MemberVo;
 
@@ -25,16 +22,18 @@ public class MemberController {
 	@Resource(name="memberService")
 	private MemberService memberService;
 	
+
+	
 	/** 
 	 * 마이바이스 테스용 메소드
 	 */
 	@RequestMapping("test.do")
 	public void test() {
-		String time = memberService.test();
-		//MemberVo member = memberService.test();
+		//String time = memberService.test();
+		MemberVo member = memberService.test();
+		//System.out.println("시간 : "+time);
+		System.out.println("상태 : "+member);
 		
-		System.out.println("시간 : "+time);
-		//System.out.println("이름 : "+member.getName());
 	}
 	
 	
@@ -56,8 +55,8 @@ public class MemberController {
 	 */
 	@RequestMapping("actionSearchMember.do")
 	public String actinoSerachMember(String searchKeyWord,Model model) {
-		List<MemberVo> members = memberService.searchMember(searchKeyWord);		
-		model.addAttribute("members", members);
+		//List<MemberVo> members = memberService.searchMember(searchKeyWord);		
+		//model.addAttribute("members", members);
 		
 		return "member/list";
 	}

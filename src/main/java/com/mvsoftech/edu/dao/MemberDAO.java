@@ -1,5 +1,6 @@
 package com.mvsoftech.edu.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.mvsoftech.edu.vo.MemberVo;
@@ -21,9 +22,9 @@ public interface MemberDAO {
 	public String selectTime();
 	
 	/** 
-	 * DB에 있는 직원들 명단 찾는 메소드
-	 * @return 직원명단
+	 * DB에 있는 직원정보 찾는 메소드
+	 * @return 직원정보
 	 */
-	public String getTime();
+	public MemberVo getMember(@Param("name")String name);
 	
 }

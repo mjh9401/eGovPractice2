@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 
+	<settings>
+		<!-- NULL 처리를 위해 NVL,IFNULL 등을 하지 않아도 됨 -->
+    	<setting name="jdbcTypeForNull" value="NULL"/>
+    	<!-- 언더스코어(_)를 없애고 낙타표기법으로 자동전환해줌. 기본값은 false -->
+    	<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="memberVo" type="com.mvsoftech.edu.vo.MemberVo"/>
+	</typeAliases>
+</configuration>
