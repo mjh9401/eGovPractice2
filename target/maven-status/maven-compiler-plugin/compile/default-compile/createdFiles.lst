@@ -1,5 +1,4 @@
-com\mvsoftech\edu\service\impl\MemberServiceImpl.class
-com\mvsoftech\edu\dao\MemberDAO.class
-com\mvsoftech\edu\vo\MemberVo.class
-com\mvsoftech\edu\controller\MemberController.class
-com\mvsoftech\edu\service\MemberService.class
+com\mvst\edu\service\impl\EmployeeServiceImpl.class
+com\mvst\edu\dao\MemberDAO.class
+com\mvst\edu\vo\MemberVO.class
+com\mvst\edu\service\EmployeeService.class

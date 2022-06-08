@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper 
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mvsoftech.edu.dao.MemberDAO">
-
-	<select id="getMember" resultType="memberVo">
-		select * from employee
-		where name = #{name}
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mvst.edu.dao.MemberDAO">
+	
+	<resultMap id="memberMap" type="memberVO" >
+		<id property="idx" column="idx"/>
+		<result property="name" column="name"/>
+		<result property="deptId" column="deptId"/>
+	</resultMap>
+	
+	<!-- 
+		직원조회
+		@param name 이름 
+	 -->
+	<select id="test" resultMap="memberMap">
+		select idx,
+		name,
+		deptId 
+		from employee
+		where name = #{name};
 	</select>
 	
 </mapper>
